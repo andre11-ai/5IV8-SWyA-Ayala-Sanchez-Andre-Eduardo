@@ -1,0 +1,70 @@
+
+*{
+	background-color: aqua;
+}
+.Titulo{
+	font-size: 50px;
+	font-family: "Comic Sans MS";
+	height: 20px;
+	width: 100%;
+	color: white;
+	-webkit-text-stroke: 2px black;
+	display: flex;
+   	justify-content: center;
+   	align-items: center;
+	margin-top: 10px;
+
+}
+.cadena{
+	font-family: "Comic Sans MS";
+	color: black;
+	font-size: 10px;
+	margin-top: 30px;
+	background-attachment: scroll;
+	height: 50px;
+	width: 400px;
+	display: flex;
+   	justify-content: space-around;
+   	resize: none;
+
+}
+.posicion{
+	font-family: "Comic Sans MS";
+	color: black;
+	font-size: 10px;
+	margin-top: 30px;
+	background-attachment: scroll;
+	height: 20px;
+	width: 40px;
+	display: flex;
+   	justify-content: space-around;
+   	resize: none;
+
+}
+.resultado{
+	font-family: "Comic Sans MS";
+	color: black;
+	font-size: 15px;
+	margin-top: 30px;
+	background-attachment: scroll;
+	background-color: white;
+	height: 50px;
+	width: 400px;
+	display: flex;
+   	justify-content: space-around;
+   }
+
+
+
+.subtitulo{
+	font-size: 25px;
+	font-family: "Comic Sans MS";
+	height: 10px;
+	width: 100%;
+	color: white;
+	display: flex;
+   	justify-content: center;
+   	align-items: center;
+	-webkit-text-stroke: 2px black;
+
+}

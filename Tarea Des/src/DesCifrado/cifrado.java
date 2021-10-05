@@ -160,8 +160,10 @@ public class cifrado extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Este es el boton para cifrar 
     private void txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActionPerformed
         // TODO add your handling code here
+        // Aqui esta todo el codigo con el que va a funcionar 
         while(llave.getText().length()==8){
             JFileChooser fc=new JFileChooser();
             

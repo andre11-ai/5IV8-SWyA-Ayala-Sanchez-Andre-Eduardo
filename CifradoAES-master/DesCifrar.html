@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Des.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="JS/Descargar.js"></script>
+    <title>Descifrado</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <h4>Descifrado AES</h4>
+
+        
+        <br>
+
+        <div id="archivito">
+            <input type="file" id="archivo" placeholder="Archivo a descifrar">
+        </div>
+
+        <textarea name="mensaje" id="mensaje" placeholder="Mensaje a descifrar" readonly></textarea>
+
+        <textarea name="llave" id="llave" placeholder="Llave"></textarea>
+
+        <div>
+            <table>
+                <th><input type="button" id="boton" value="Descifrar" onclick="descifrado()"></th>
+            </table>
+        </div>
+
+        <textarea name="resultados" id="resultados" placeholder="Mensaje hexadecimal" readonly></textarea>
+
+        <textarea name="mcifrado" id="mcifrado" placeholder="Mensaje descifrado" readonly></textarea>
+
+        <textarea id="nomarch" placeholder="Nombre del archivo"></textarea>
+
+        <div>
+            <table>
+                <th><input type="button" id="a" onclick="atxt()" value="TXT"></th>
+            </table>
+        </div>
+
+        <div id="navegar">
+            <a href="index.html">Cifrados</a>
+        </div>
+
+    </form>
+
+    <br>
+
+    <script>
+        function atxt() {
+            var cth = document.getElementById("mcifrado").value;
+            var blob = new Blob([cth], { type: "text/plain;charset=utf-8" });
+            var nomarch = document.getElementById("nomarch").value;
+            
+            if (cth == "") {
+                swal('Error', 'No hay un mensaje cifrado', 'error');
+            }else{
+                if (nomarch == ""){
+                    swal('Error', 'Dale nombre al archivo', 'error');
+                }else {
+                    saveAs(blob, nomarch+".txt");
+                }
+            }
+        }
+
+    </script>
+
+    <script src="JS/operaciones.js"></script>
+
+</body>
+
+</html>

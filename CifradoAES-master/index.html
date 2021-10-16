@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/estilos.css">
+    <script src="JS/Descargar.js"></script>
+    <script src="JS/operaciones.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Cifrado AES</title>
+</head>
+<body>
+
+    <form action=""> 
+
+        <h4>Cifrado AES</h4>
+
+       <br>
+        <textarea name="aCifrar" id="mensaje" placeholder="Mensaje a cifrar"></textarea>
+
+        <div>
+            <h4>Generador de Contraseñas o Pon una Clave tuya</h4>
+            <table>
+                <th><input type ="button" id="boton" value="16" onclick="generar(16)"></th>
+                <th><input type ="button" id="boton" value="24" onclick="generar(24)"></th>
+                <th><input type ="button" id="boton" value="32" onclick="generar(32)"></th>
+            </table>
+        </div>
+
+        <textarea name="llavekawaii" id="llave" placeholder="Clave"></textarea>
+
+        <div>
+            <h4>Tipo de cifrado AES:</h4>
+            <table>
+                <th><input type ="button" id="boton" value="128" onclick="para128()"></th>
+                <th><input type ="button" id="boton" value="192" onclick="para192()"></th>
+                <th><input type ="button" id="boton" value="256" onclick="para256()"></th>
+            </table>
+        </div>
+
+        <textarea name="original" id="moriginal" placeholder="Original" readonly></textarea>
+
+        <textarea name="mcifrado" id="mcifrado" placeholder="Cifrado" readonly></textarea>
+
+        <textarea name="nomarch" id="nomarch" placeholder="Como quieres que se llame tu archivo Cifrado"></textarea>
+
+        <div>
+            <table>
+                <th><input type ="button" id="a" onclick="atxt()" value="TXT"></th>
+
+            </table>
+        </div>
+
+
+
+
+
+        <div id="navegar">
+            <a href="./DesCifrar.html">Descifrado</a>
+        </div>
+        
+    </form>
+
+    <br>
+    <br>
+
+    <script>
+
+        function generar(len){
+            let random = '';
+            let wordChars = 'qwertyuiopasdfghjklzxcvbnm1234567890';
+                for(let i=0; i < len; i++){
+                    random += wordChars.charAt(Math.floor(Math.random() * wordChars.length));
+                }
+            document.getElementById("llave").value = random;
+        }
+
+        function atxt() {
+            var cth = document.getElementById("mcifrado").value;
+            var blob = new Blob([cth], { type: "text/plain;charset=utf-8" });
+            var nomarch = document.getElementById("nomarch").value;
+            
+            if (cth == "") {
+                swal('Error', 'No hay un mensaje cifrado', 'error');
+            }else{
+                if (nomarch == ""){
+                    swal('Error', 'Dale nombre al archivo', 'error');
+                }else {
+                    saveAs(blob, nomarch+".txt");
+                }
+            }
+        }
+
+      
+    </script>
+    
+</body>
+</html>
